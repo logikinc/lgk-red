@@ -1,0 +1,14 @@
+<div id="connect">
+  <div class="modal-header modal-header-w-icon clearfix">
+    <h3 class="pull-left">
+      <i class="icon-server"></i> Manage your connections...
+    </h3>
+    <i class="close icon-times" ng-click="close()"></i>
+  </div>
+  <div class="modal-body">
+    <div class="connect-panel" ng-if="currentPage === 'list'" ng-include="listConnectionsSrc"></div>
+    <div class="connect-panel" ng-if="currentPage === 'add'" ng-include="addConnectionSrc"></div>
+    <div class="connect-panel" ng-if="currentPage === 'edit'" ng-include="editConnectionSrc"></div>
+    <div class="connect-panel" ng-if="currentPage === 'remove'" ng-include="removeConnectionSrc"></div>
+  </div>
+</div>

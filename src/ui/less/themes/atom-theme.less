@@ -1,0 +1,93 @@
+/*
+ * Atom Theme
+ */
+.theme-atom {
+  @atom-blue: #52a8ff;
+
+  //colors
+  @theme-brand-primary: @atom-blue;
+  @theme-brand-success: #5cb85c;
+  @theme-brand-info: #5bc0de;
+  @theme-brand-warning: #f0ad4e;
+  @theme-brand-danger: #E6332E;
+
+  //globals
+  @theme-bg: #161719;
+  @theme-text-color: #ccced2;
+  @theme-border-color: lighten(@theme-bg, 10%);
+
+  //form inputs
+  @theme-input-bg: darken(@theme-bg, 5%);
+  @theme-input-disabled-bg: lighten(@theme-bg, 12%);
+  @theme-input-border-color: lighten(@theme-bg, 10%);
+  @theme-input-color: @theme-text-color;
+
+  //sidenav
+  @theme-sidenav-bg: lighten(@theme-bg, 2%);
+  @theme-sidenav-border-color: darken(@theme-bg, 2%);
+
+  //tabs
+  @theme-tab-border-color: transparent;
+  @theme-tab-active-bg: #1d1f21;
+  @theme-tab-pane-bg: #1d1f21;
+  @theme-tab-active-line-bg: @theme-brand-primary;
+
+  //toaster message
+  @theme-toast-border-radius: 4px;
+
+  //server list
+  @theme-server-list-border-color: transparent;
+  @theme-server-list-hover-bg: #27292c;
+  @theme-server-list-hover-color: #e2c08d;
+
+  //query
+  @theme-query-editor-color: #c5c8c6;
+  @theme-query-editor-bg: @theme-bg;
+  @theme-query-editor-border-color: lighten(@theme-bg, 10%);
+  @theme-query-editor-input-bg: lighten(@theme-bg, 10%); //query edit skip + take input bg
+  @theme-query-editor-string-color: #b5bd68;
+  @theme-query-editor-boolean-color: #de935f;
+  @theme-query-editor-key-color: #de935f;
+  @theme-query-editor-keyword-color: #de935f;
+  @theme-query-editor-variable-color: #f0c674;
+
+  //query-result-json
+  @theme-query-result-json-bg: #2c3033;
+  @theme-query-result-json-color: #b294bb;
+  @theme-query-result-json-border-color: darken(#2c3033, 10%);
+  @theme-query-result-json-seprator: white;
+  @theme-query-result-json-key: #b294bb;
+  @theme-query-result-json-string: white;
+  @theme-query-result-json-boolean: white;
+
+  //query-result icons
+  @theme-query-result-date-icon: red;
+  @theme-query-result-string-icon: white;
+
+  //query-result-autocomplete-menu
+  @theme-query-result-autocomplete-menu-bg: darken(@theme-bg, 14%);
+  @theme-query-result-autocomplete-menu-active-bg: lighten(@theme-query-result-autocomplete-menu-bg, 20%);
+  @theme-query-result-autocomplete-menu-color: white;
+  @theme-query-result-autocomplete-menu-border-color: lighten(@theme-bg, 10%);
+
+  //query-results-export
+  @theme-query-result-export-border: lighten(@theme-modal-content-bg, 10%);
+
+  //buttons
+  @theme-btn-default-bg: #303337;
+  @theme-btn-default-color: @theme-text-color;
+  @theme-btn-primary-color: white;
+  @theme-btn-primary-bg: @theme-brand-primary;
+
+  //modals
+  @theme-modal-content-bg: #41464c;
+  @theme-modal-header-bg: #2c3033;
+  @theme-modal-footer-bg: #2c3033;
+  @theme-modal-connected-icon-color: @theme-brand-primary;
+
+  //user info note
+  @theme-user-info-note-dot-color: @theme-brand-primary;
+
+  //init mixin
+  .theme();
+}

@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="fragment" content="!">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <!-- CSS -->
+  <!-- src -->
+  <link rel="stylesheet" href="./css/main.css" />
+  <!-- vendor -->
+  <link rel="stylesheet" href="./vendor/codemirror/lib/codemirror.css" />
+  <link rel="stylesheet" href="./vendor/codemirror/addon/hint/show-hint.css" />
+  <!-- JAVASCRIPT -->
+  <script>
+    //load jquery using require because it thinks it's loading for node and
+    //doesn't register the global $ or jquery
+    window.$ = window.jQuery = require('./vendor/jquery/dist/jquery.min.js');
+  </script>
+  <!-- vendor -->
+  <script src="./vendor/jquery-ui/jquery-ui.min.js"></script>
+  <script src="./vendor/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="./vendor/angular/angular.js"></script>
+  <script src="./vendor/angular-ui-sortable/sortable.js"></script>
+  <script src="./vendor/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="./vendor/underscore/underscore.js"></script>
+  <script src="./vendor/angular-sanitize/angular-sanitize.js"></script>
+  <script src="./vendor/angular-auto-grow-input/dist/angular-auto-grow-input.js"></script>
+  <script src="./vendor/moment/moment.js"></script>
+  <script src="./vendor/Keypress/keypress.js"></script>
+  <script src="./vendor/codemirror/lib/codemirror.js"></script>
+  <script src="./vendor/codemirror/mode/javascript/javascript.js"></script>
+  <script src="./vendor/codemirror/addon/hint/show-hint.js"></script>
+  <script src="./vendorCustom/codemirror-formatting.js"></script>
+  <script src="./vendorCustom/ng-bs-animated-button.js"></script>
+  <!-- src -->
+  <script src="./app.js"></script>
+  <script src="./filters/trim.js"></script>
+  <script src="./services/connectionCache.js"></script>
+  <script src="./services/keypressService.js"></script>
+  <script src="./services/notificationService.js"></script>
+  <script src="./services/keypressHandlers/connectionManager-newConnection.js"></script>
+  <script src="./services/keypressHandlers/tabManager-runQuery.js"></script>
+  <script src="./services/keypressHandlers/tabManager-autoformat.js"></script>
+  <script src="./services/keypressHandlers/tabManager-nextTab.js"></script>
+  <script src="./services/keypressHandlers/tabManager-previousTab.js"></script>
+  <script src="./services/keypressHandlers/tabManager-newTab.js"></script>
+  <script src="./services/menuService.js"></script>
+  <script src="./services/modalService.js"></script>
+  <script src="./services/dialogService.js"></script>
+  <script src="./services/tabCache.js"></script>
+  <script src="./services/themeService.js"></script>
+  <script src="./services/navUtils.js"></script>
+  <script src="./services/recursionHelper.js"></script>
+  <script src="./services/utilsService.js"></script>
+  <script src="./controllers/appCtrl.js"></script>
+  <script src="./components/connect/connectCtrl.js"></script>
+  <script src="./components/connect/listConnections/listConnectionsCtrl.js"></script>
+  <script src="./components/connect/addConnection/addConnectionCtrl.js"></script>
+  <script src="./components/connect/removeConnection/removeConnectionCtrl.js"></script>
+  <script src="./components/queryResultsExportModal/queryResultsExportModalCtrl.js"></script>
+  <script src="./components/addDatabase/addDatabaseCtrl.js"></script>
+  <script src="./components/addCollection/addCollectionCtrl.js"></script>
+  <script src="./components/about/aboutCtrl.js"></script>
+  <script src="./components/settings/settingsCtrl.js"></script>
+  <script src="./components/settings/keybindings/keybindingsCtrl.js"></script>
+  <script src="./components/settings/preferences/preferencesCtrl.js"></script>
+  <script src="./components/settings/themes/themesCtrl.js"></script>
+  <script src="./components/logs/logsCtrl.js"></script>
+  <script src="./directives/loading.js"></script>
+  <script src="./directives/imageSrc.js"></script>
+  <script src="./directives/slideDown.js"></script>
+  <script src="./directives/rightClick.js"></script>
+  <script src="./directives/codemirror/codemirror.js"></script>
+  <script src="./directives/query/query.js"></script>
+  <script src="./directives/query/queryCtrl.js"></script>
+  <script src="./directives/queryResultsExport/queryResultsExport.js"></script>
+  <script src="./directives/queryResultsExport/queryResultsExportCtrl.js"></script>
+  <script src="./directives/sidebar/sidebar.js"></script>
+  <script src="./directives/sidebar/sidebarCtrl.js"></script>
+  <script src="./directives/sidenav/sidenav.js"></script>
+  <script src="./directives/sidenav/sidenavCtrl.js"></script>
+  <script src="./directives/tabView/tabView.js"></script>
+  <script src="./directives/tabView/tabViewCtrl.js"></script>
+  <script src="./directives/keybindingContext.js"></script>
+  <script src="./directives/hasConnections.js"></script>
+  <script src="./directives/themeClass.js"></script>
+  <script src="./directives/keyValueResults/keyValueResults.js"></script>
+  <script src="./directives/keyValueResults/keyValueResultsCtrl.js"></script>
+  <script src="./directives/keyValueResult/keyValueResult.js"></script>
+  <script src="./directives/keyValueResult/keyValueResultCtrl.js"></script>
+  <script src="./directives/notifications/notifications.js"></script>
+  <script src="./directives/notifications/notificationsCtrl.js"></script>
+  <script src="./directives/notifications/notification.js"></script>
+  <script src="./directives/notifications/notificationCtrl.js"></script>
+</head>
+
+<body theme-class>
+  <!-- need for ngAnimate -->
+  <base href="/" />
+  <!-- APP -->
+  <div class="app" ng-controller="appCtrl" keybinding-context="mongotron-workspace" has-connections>
+    <div class="sidebar-wrapper">
+      <sidenav></sidenav>
+      <sidebar></sidebar>
+    </div>
+    <div class="content-wrapper">
+      <div class="content">
+        <tab-view keybinding-context="mongotron-tab-view"></tab-view>
+      </div>
+    </div>
+  </div>
+  <notifications></notifications>
+</body>
+
+</html>

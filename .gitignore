@@ -1,0 +1,11 @@
+node_modules
+.DS_Store
+*.log
+*.codekit
+*.sublime-*
+src/ui/vendor
+src/ui/css
+*.idea
+release
+build
+docs
